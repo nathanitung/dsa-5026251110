@@ -1,4 +1,3 @@
-package prelab;
 
 public interface Chargeable {
 

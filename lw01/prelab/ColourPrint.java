@@ -1,4 +1,3 @@
-package prelab;
 
 public class ColourPrint extends PrintJob implements Chargeable {
 

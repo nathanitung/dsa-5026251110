@@ -1,5 +1,3 @@
-package prelab;
-
 public class MonoPrint extends PrintJob implements Chargeable {
 
     public MonoPrint(String id, int pages) {
