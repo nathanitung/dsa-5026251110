@@ -1,6 +1,6 @@
 package prelab;
 
-public class ColourPrint extends PrintJob {
+public class ColourPrint extends PrintJob implements Chargeable {
 
     public ColourPrint(String id, int pages) {
         super(id, pages);

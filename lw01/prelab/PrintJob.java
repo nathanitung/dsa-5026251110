@@ -5,8 +5,10 @@ public abstract class PrintJob implements Chargeable  {
     private int pages;
 
     public PrintJob(String id, int pages) {
-        if (pages < 0) {
-            throw new IllegalArgumentException("Pages must be non-negative");
+        if (pages <= 0) {
+            throw new IllegalArgumentException("Jumlah lembar harus lebih dari 0.");
+        } else if (pages > 100) {
+            throw new IllegalArgumentException("Jumlah lembar tidak boleh lebih dari 100.");
         }
         
         this.id = id;
@@ -28,7 +30,9 @@ public abstract class PrintJob implements Chargeable  {
     public int calculateCharge(int copies) { 
         if (copies <= 0) {
             throw new IllegalArgumentException("Jumlah salinan harus lebih dari 0.");
-        } 
+        } else if (copies > 10) {
+            throw new IllegalArgumentException("Jumlah salinan tidak boleh lebih dari 10.");
+        }
         return copies *  calculateCharge();
     }
 
