@@ -2,10 +2,10 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
-public class Main {
+public class MainPrelab01 {
     public static void main(String[] args) {
         
-        Scanner scanner = new Scanner(Main.class.getResourceAsStream("jobs.txt"));
+        Scanner scanner = new Scanner(MainPrelab01.class.getResourceAsStream("jobs.txt"));
 
         List<PrintJob> jobs = new ArrayList<>();
 
@@ -13,7 +13,7 @@ public class Main {
             String type = scanner.next();
             String id = scanner.next();
             int pages = scanner.nextInt();
-            
+
             if(type.equals("MONO")){
                 jobs.add(new MonoPrint(id, pages));
             } else if(type.equals("COLOUR")){
