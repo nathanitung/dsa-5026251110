@@ -59,7 +59,7 @@ public class MainPrelab02 {
                 customer.set(custIndex, custAcc);
             } else if (type.equals("WITHDRAW")) {
                 if (amount > Integer.parseInt(custAcc[1])) {
-                    failedTransaction.add(curr);
+                    failedTransaction.push(curr);
                 } else {
                     int before = Integer.parseInt(custAcc[1]);
                     int after = before - amount;
