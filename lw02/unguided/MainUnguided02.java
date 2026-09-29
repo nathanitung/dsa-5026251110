@@ -17,7 +17,7 @@ public class MainUnguided02 {
         food.add(new String[]{"Sate", "1"});
         food.add(new String[]{"Soto", "2"});
         drink.add(new String[]{"EsTeh", "4"});
-        drink.add(new String[]{"EsJEruk", "2"});
+        drink.add(new String[]{"EsJeruk", "2"});
 
         while (scanner.hasNext()){
             String[] arr = new String[4];
@@ -32,60 +32,51 @@ public class MainUnguided02 {
 
         while(!queue.isEmpty()){
             String[] arr = queue.poll();
-            boolean bool = true;
+            String foodName = arr[1];
+            String drinkName = arr[2];
 
-            //cek makanan
-            switch (arr[1]){
-                case "Bakso":
-                    String[] bakso = food.get(0);
-                    if(!bakso[1].equals("0")){
-                        bakso[1] = Integer.toString(Integer.parseInt(bakso[1]) - 1);
-                    } else {
-                        bool = false;
+            String[] orderedFood = null;
+            String[] orderedDrink = null;
+
+            boolean foodAvailable = true;
+            boolean drinkAvailable = true;
+
+            if (!foodName.equals("-")) {
+                for (String[] f : food) {
+                    if (f[0].equals(foodName)) {
+                        orderedFood = f;
+                        break;
                     }
-                    break;
-                case "Sate":
-                    String[] sate = food.get(1);
-                    if(!sate[1].equals("0")){
-                        sate[1] = Integer.toString(Integer.parseInt(sate[1]) - 1);
-                    } else {
-                        bool = false;
-                    }
-                    break;
-                case "Soto":
-                    String[] soto = food.get(2);
-                    if(!soto[1].equals("0")){
-                        soto[1] = Integer.toString(Integer.parseInt(soto[1]) - 1);
-                    } else {
-                        bool = false;
-                    }
-                    break;
+                }
+                if (orderedFood == null || Integer.parseInt(orderedFood[1]) <= 0) {
+                    foodAvailable = false;
+                }
             }
 
-            //cek minum
-            switch (arr[2]) {
-                case "EsTeh":
-                    String[] esteh = drink.get(0);
-                    if (!esteh[1].equals("0")) {
-                        esteh[1] = Integer.toString(Integer.parseInt(esteh[1]) - 1);
-                    } else {
-                        bool = false;
+            if (!drinkName.equals("-")) {
+                for (String[] d : drink) {
+                    if (d[0].equals(drinkName)) {
+                        orderedDrink = d;
+                        break;
                     }
-                    break;
-                case "EsJeruk":
-                    String[] esjeruk = drink.get(1);
-                    if(!esjeruk[1].equals("0")){
-                        esjeruk[1] = Integer.toString(Integer.parseInt(esjeruk[1]) - 1);
-                    } else {
-                        bool = false;
-                    }
-                    break;
+                }
+                if (orderedDrink == null || Integer.parseInt(orderedDrink[1]) <= 0) {
+                    drinkAvailable = false;
+                }
             }
 
-            if(bool){
+            if (foodAvailable && drinkAvailable) {
+                if (orderedFood != null) {
+                    int s = Integer.parseInt(orderedFood[1]);
+                    orderedFood[1] = Integer.toString(s - 1);
+                }
+                if (orderedDrink != null) {
+                    int s = Integer.parseInt(orderedDrink[1]);
+                    orderedDrink[1] = Integer.toString(s - 1);
+                }
                 success.add(arr);
             } else {
-                failed.add(arr);
+                failed.push(arr);
             }
         }
 
