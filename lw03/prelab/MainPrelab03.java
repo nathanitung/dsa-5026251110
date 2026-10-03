@@ -1,6 +1,6 @@
 import java.util.*;
 
-public class MainUnguided03 {
+public class MainPrelab03 {
     public static void main(String[] args){
         problemOne();
         System.out.println();
@@ -10,7 +10,7 @@ public class MainUnguided03 {
     }
 
     static void problemOne(){
-        Scanner scanner = new Scanner(MainUnguided03.class.getResourceAsStream("playlist.txt"));
+        Scanner scanner = new Scanner(MainPrelab03.class.getResourceAsStream("playlist.txt"));
         List<String> song = new LinkedList<>();
         while(scanner.hasNext()){
             String inputType = scanner.next();
@@ -32,7 +32,7 @@ public class MainUnguided03 {
         scanner.close();
     }
     static void problemTwo(){
-        Scanner scanner = new Scanner(MainUnguided03.class.getResourceAsStream("participant.txt"));
+        Scanner scanner = new Scanner(MainPrelab03.class.getResourceAsStream("participant.txt"));
 
         Set<String> name = new LinkedHashSet<>();
         int duplicate = 0;
@@ -58,7 +58,7 @@ public class MainUnguided03 {
     }
 
     static void problemThree(){
-        Scanner scanner = new Scanner(MainUnguided03.class.getResourceAsStream("inventory.txt"));
+        Scanner scanner = new Scanner(MainPrelab03.class.getResourceAsStream("inventory.txt"));
 
         Map<String, Integer> product = new LinkedHashMap<>();
         int failed = 0;
