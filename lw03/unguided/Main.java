@@ -5,8 +5,7 @@ import java.util.Set;
 
 public class Main {
     public static void main(String[] args){
-        Scanner scanner1 = new Scanner(Main.class.getResourceAsStream("registrations.txt"));
-        Scanner scanner2 = new Scanner(Main.class.getResourceAsStream("checkins.txt"));
+        Scanner scanner1 = new Scanner(Main.class.getResourceAsStream("registrations.txt")), scanner2 = new Scanner(Main.class.getResourceAsStream("checkins.txt"));
 
         Set<String> reg = new LinkedHashSet<>(), check = new LinkedHashSet<>();
         int reject = 0 ;
@@ -18,14 +17,12 @@ public class Main {
         System.out.println("===== Event Check-In Results =====");
         while(scanner2.hasNext()){
             String id = scanner2.next();
-            if(reg.contains(id) && !check.contains(id)){ //cek kalau regis tapi belum checkin
+            if(reg.contains(id) && !check.contains(id)){
                 check.add(id);
                 System.out.println(id + ": Checked in");
-            } else if (reg.contains(id) && check.contains(id)) { //cek kalau regis dan sudah checkin
-                System.out.println(id + ": Rejected (already checked in)");
-                reject++;
-            } else if (!reg.contains(id)) { //cek lalau tidak regis tapi check in
-                System.out.println(id + ": Rejected (not registered)");
+            } else {
+                String failed = reg.contains(id) && check.contains(id) ? ": Rejected (already checked in)" : ": Rejected (not registered)";
+                System.out.println(id + failed);
                 reject++;
             }
         }
