@@ -1,0 +1,16 @@
+Note 1
+3 7 1 9 5 8 2
+iterasi pertama : 7 3 1 9 5 8 2
+iterasi kedua : 7 3 1 9 5 8 2
+iterasi ketiga : 9 7 3 1 5 8 2
+hasil dari note 1 cocok dengan insertion
+jadi, Rid's Algorithm adalah insertion sort
+
+kenapa bukan sorting lain
+Bubble Sort pada Note 1 akan menghasilkan 9 8 7 3 1 5 2
+Selection Sort (3 Pass) pada Note 1 akan menghasilkan 9 8 7 3 5 1 2
+
+
+algoritma searching yang digunakan adalah linear search karena array branches
+belum tersort semuanya sehingga linear search lebih cocok untuk mencari sebuat nilai.
+binary search tidak cocok karena array branches belum tersortir
