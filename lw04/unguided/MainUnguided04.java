@@ -34,6 +34,7 @@ public class MainUnguided04 {
             }
         }
 
+        scanner.close();
     }
 
     public static void insertionSort(int[] arr) {
